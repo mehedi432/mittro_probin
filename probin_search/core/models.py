@@ -3,6 +3,13 @@ from django_resized import ResizedImageField
 
 
 class Person(models.Model):
+    
+    MOBILE_BANKING = (
+        ('bkash', 'বিকাশ'),
+        ('nagad', 'নগদ'),
+    )
+    
+    
     form_number = models.CharField(max_length=8, null=True, blank=True)
     name = models.CharField(max_length=89)
     house_number = models.CharField(max_length=21, null=True, blank=True)
@@ -10,6 +17,7 @@ class Person(models.Model):
     age = models.CharField(max_length=89)
     nid_number = models.CharField(max_length=89)
     mobile_number = models.CharField(max_length=89)
+    mobile_banking = models.CharField(max_length=89, choices=MOBILE_BANKING ,null=True, blank=True)
     
     father_name = models.CharField(max_length=89, blank=True, null=True) 
     current_address = models.TextField(blank=True, null=True)
