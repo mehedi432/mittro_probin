@@ -1,0 +1,43 @@
+{% extends 'master.html' %}
+
+{% block content %}
+<div class="container">
+    <div class="row justify-content-center">
+    
+        <table class="table table-bordered">
+            <thead>
+                <tr class="text-center">
+                <th scope="col">#</th>
+                {% comment %} <th scope="col">ছবি</th> {% endcomment %}
+                <th scope="col">নাম</th>
+                <th scope="col">পিতার নাম</th>
+                <th scope="col">বর্তমান ঠিকানা</th>
+                <th scope="col">বয়স</th>
+                <th scope="col">NID নম্বর</th>
+                <th scope="col">মোবাইল নম্বর</th>
+                </tr>
+            </thead>
+            {% for person in object_list %}
+            <tbody>
+                <tr class="text-center">
+                <th scope="row">{{person.id}}</th>
+                {% comment %} <th scope="row"> <img style='height: 21%; width:21%;' class='img-responsive' src="{{person.image.url}}" class="img-rounded" alt={{person.image}} > </th> {% endcomment %}
+
+                <td>{{person.name}}</td>
+                <td>{{person.father_name}}</td>
+                <td>{{person.current_address}}</td>
+                <td>{{person.age}}</td>
+                <td>{{person.nid_number}}</td>
+
+                <td>+880 {{person.mobile_number}}</td>
+
+                </tr>
+            </tbody>
+            {% empty %}
+            {% endfor %}
+        </table>
+    </div>
+</div>
+
+
+{% endblock content %}

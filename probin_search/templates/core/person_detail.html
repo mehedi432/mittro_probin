@@ -1,0 +1,75 @@
+{% extends 'master.html' %}
+{% block content %}
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-4 col-sm-4">
+            <div class="text-right justify-content-center">
+                <img class="card-img-top mx-auto d-block" src={{person.image.url}} alt="{{person.name}}" style="width:55%" width="21rem" height="89%">
+            </div>
+            <br>
+        </div>
+        <div class="col-md-8">
+            <div class="">
+                <div class="text-center mt-3">
+                    <h3>{{person.name}}</h3> <hr class="text-primary">
+                </div>
+                <div class="mb-0">
+                    <p style='font-size: 1.3rem'>পিতার নাম : {{person.father_name}}</p>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-sm-6 col-md-6">
+                        বয়স : {{person.age}}
+                    </div>
+                    <div class="col-sm-6 col-md-6">
+                        জাতীয় পরিচয় পত্র : {{person.nid_number}}
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-sm-6">
+                        বর্তমান ঠিকানা : {{person.current_address}}
+                    </div>
+                    <div class="col-sm-6">
+                        স্থায়ী ঠিকানা : {{person.permanent_address}}
+                    </div>
+                </div>
+
+                <div class="row mt-3">
+                    <div class="col-sm-6">
+                        পেশা : {{person.occupassion}}
+                    </div>
+                    <div class="col-sm-6">
+                        অসুস্থতা : {{person.illness}}
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-sm-6">
+                        ধর্ম : {{person.religion}}
+                    </div>
+                    <div class="col-sm-6">
+                        সন্তানের সংখ্যা : {{person.child_count}}
+                    </div>
+                </div>
+
+                <div class="row justify-content-center mt-3">
+                    <div class="col-sm-6">
+                        মোবাইল নম্বর: <a href="tel:0{{person.mobile_number}}">+880 {{person.mobile_number}}</a>
+                    </div>
+
+                    <div class="col-sm-6">
+                        ব্যাংক:
+                    </div>
+                </div>
+                <div class="row justify-content-center mt-3">
+                    <div class="col-md-6">
+                        জন্ম স্থান : {{person.birth_place}}
+                    </div>
+                    <div class="col-md-6">
+                        বসবাস : {{person.living}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

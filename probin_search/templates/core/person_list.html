@@ -1,0 +1,47 @@
+{% extends 'master.html' %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row justify-content-center">
+    {% for person in object_list %}
+        <div class="col-md-4 col-sm-4">
+            <a href="{% url 'person:person-detail' person.id%}" style="text-decoration:none">
+                <div class="card shadow" style="" >
+                    <img class="card-img-top" src={{person.image.url}} alt="{{person.name}}" style="width:100%" width="21rem" height="377rem">
+                    <div class="card-body">
+                        <h4 class="card-title text-dark text-center font-weight-bolder" style="font-size: 13pt; margin-top: -5pt; margin-bottom: -1pt"> {{person.name}}</h4>
+                        <h4 class="card-text text-dark text-center font-weight-bold" style="font-size: 11pt; margin-bottom: -13pt;">+880 {{person.mobile_number}}</h4>
+                    </div>
+                </div>
+            </a>
+            <br>
+        </div>
+    {% empty %}
+        <div class="jumbotron bg-secondary text-white">
+            <h3>No Person Found !</h3>
+        </div>
+    {% endfor %}
+
+        {% comment %} <div class="pagination mb-5">
+            <span class="step-links">
+                {% if page_obj.has_previous %}
+                    <a class='' href="?page=1">&laquo; first</a>
+                    <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+                {% endif %}
+
+                <span class="current">
+                    Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+                </span>
+
+                {% if page_obj.has_next %}
+                    <a class='' href="?page={{ page_obj.next_page_number }}">next</a>
+                    <a class='' href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+                {% endif %}
+            </span>
+        </div>            {% endcomment %}
+    </div>
+</div>
+
+
+{% endblock content %}
